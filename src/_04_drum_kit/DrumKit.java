@@ -42,7 +42,7 @@ frame.add(panel);
 		// Eclipse project under "default package".
 
 		// 8. Put the name of your image file in a String variable.
-String drum = "file:///C:/Users/runjh/Downloads/drum.png";
+String drum = "drum.png";
 		// 9. Edit the next line to use your String variable
 		 drumLabelWithImage = createLabelImage(drum);
 
@@ -54,7 +54,7 @@ panel.setLayout(new GridLayout());
 		// your drum image?
 frame.pack();
 // 13. add this mouse listener to drumLabelWithImage
-
+drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
 
@@ -76,7 +76,7 @@ frame.pack();
 
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
-
+playSound("bassdrum.wav");
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
