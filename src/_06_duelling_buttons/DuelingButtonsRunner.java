@@ -1,4 +1,4 @@
-package _06_duelling_buttons;
+spackage _06_duelling_buttons;
 /*
  *    Copyright (c) The League of Amazing Programmers 2013-2019
  *    Level 1
