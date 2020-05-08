@@ -1,5 +1,6 @@
 int score = 0;
-  String level = "1";
+  String level="1";
+  float speed;
  void setup(){
   size(1280,720);
 }
@@ -29,36 +30,61 @@ fill(210, 105, 30);
     stroke(210,105,30);
     rect(mouseX, 630, 90, 90);
     
-y+=9;
+
 
 fill(255,255,255);
  text("Your score is now: " + score, 10,30);
  
  fill(255,255,0);
  text("Level "+ level,900,30);
- 
+
 if(y>720){
    checkCatch(x);
   x = (int) random(width);
-  y=0;
+  
 
-
+  if(level == "3"){
+    
+ speed = random(9, 17);
+// speed=1;
 }
+  y=0;
+}
+
+if(score>=0 && score<30){
+y+=9;
+  
+}
+
 
 if(score>=30 && score<60){
 
   level = "2";
-y+=5;
+//14
+y+=14;
 
 }
 
-if(score>=60 && score<7000){
-float speed =  random(1, 17);
+else{
+  if(score>=60 && score<90){
+
+//println(speed);
 y+=speed;
   fill(255,255,0);
 level = "3";
 
+println("test");
 
+}
+
+
+}
+
+
+if(score>=90){
+  fill(0,255,0);
+text("YOU WON!", 360, 360);
+  noLoop(); 
 }
 
 }
@@ -70,7 +96,7 @@ level = "3";
          if (x > mouseX && x < mouseX+100)
             score+=10;
          else if (score > 0) 
-            score--;
+            score-=10;
            // exit();
       
     }
