@@ -1,6 +1,6 @@
 int score = 0;
   String level="1";
-  float speed;
+  float speed =14;
  void setup(){
   size(1280,720);
 }
@@ -94,9 +94,9 @@ text("YOU WON!", 360, 360);
 
  void checkCatch(int x){
          if (x > mouseX && x < mouseX+100)
-            score+=10;
+            score+=1;
          else if (score > 0) 
-            score-=10;
+            score-=1;
            // exit();
       
     }
