@@ -1,10 +1,17 @@
 int score = 0;
+
   String level="1";
-  float speed =14;
+  
+   float speed = random(5, 25);
+   
+ int boxX=90;
+ 
+ int boxRange=90;
+ 
  void setup(){
+   
   size(1280,720);
 }
-
 
 int x = (int) random(width);
 int y = 0;
@@ -20,7 +27,8 @@ fill(0, 102, 153);
 text("Click and Hold to Play", 500, 400);
 
 if(mousePressed){
-background(0,0,0);
+
+  background(0,0,0);
 
 fill(100, 150, 255);
     stroke(100,150,255);
@@ -28,7 +36,7 @@ fill(100, 150, 255);
     
 fill(210, 105, 30);
     stroke(210,105,30);
-    rect(mouseX, 630, 90, 90);
+    rect(mouseX, 630, boxX, 90);
     
 
 
@@ -39,52 +47,72 @@ fill(255,255,255);
  text("Level "+ level,900,30);
 
 if(y>720){
-   checkCatch(x);
-  x = (int) random(width);
   
+  checkCatch(x);
+ 
+  x = (int) random(width);
 
-  if(level == "3"){
-    
- speed = random(9, 17);
-// speed=1;
-}
+ speed = random(5, 25);
+ 
   y=0;
+
 }
 
 if(score>=0 && score<30){
-y+=9;
-  
-}
 
+  y+=9;
+  
+  boxRange=90;
+  boxX=90;
+
+}
+else{
 
 if(score>=30 && score<60){
 
   level = "2";
-//14
+
 y+=14;
+
+boxRange=90;
+boxX=90;
 
 }
 
 else{
+  
   if(score>=60 && score<90){
 
-//println(speed);
+    boxRange=90;
+boxX=90;
+
 y+=speed;
+
   fill(255,255,0);
 level = "3";
 
-println("test");
+}
+
+else{
+  
+if(score>=90 && score<120){
+  
+  y+=speed;
+   boxX=45;
+   boxRange=45;
+  level = "4";
+    
+}
+else{
+  
+  win();
+   
+}
 
 }
 
-
 }
 
-
-if(score>=90){
-  fill(0,255,0);
-text("YOU WON!", 360, 360);
-  noLoop(); 
 }
 
 }
@@ -93,10 +121,14 @@ text("YOU WON!", 360, 360);
 
 
  void checkCatch(int x){
-         if (x > mouseX && x < mouseX+100)
-            score+=1;
+         if (x > mouseX && x < mouseX+boxRange)
+            score+=10;
          else if (score > 0) 
-            score-=1;
-           // exit();
-      
+            score-=10; 
+    }
+    
+    
+    void win(){
+     fill(0,255,0);
+     text("You won!",500,360);
     }
