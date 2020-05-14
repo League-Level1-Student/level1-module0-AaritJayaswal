@@ -56,10 +56,10 @@ fill(210, 105, 30);
 
 
 fill(255,255,255);
- text("Your score is now: " + score, 10,50);
+ text("Your score is now: " + score, 10,80);
  
  fill(255,255,0);
- text("Level "+ level,1400,50);
+ text("Level "+ level,1400,80);
 
 if(y>1080){
   
