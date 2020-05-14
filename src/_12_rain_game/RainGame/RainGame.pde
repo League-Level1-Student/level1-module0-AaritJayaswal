@@ -12,10 +12,10 @@ int score = 0;
  
  void setup(){
    
-  size(1280,720);
+  size(1920,1080);
  
   //dog = loadImage("dancing-doge-png-4.gif");
-   //dog.resize(130,90);
+  // dog.resize(130,90);
 }
 
 int x = (int) random(width);
@@ -27,13 +27,13 @@ int y = 0;
  void draw(){
    background(0,0,0); 
   
-textSize(32);
+textSize(70);
 
 fill(255,255,255);
-text("Rain Game", 580, 360); 
+text("Rain Game", 825, 410); 
 
 fill(0, 102, 153);
-text("Click and Hold to Play", 500, 400);
+text("Click and Hold to Play", 645, 480);
 
 if(mousePressed){
 
@@ -43,36 +43,37 @@ fill(100, 150, 255);
     stroke(100,150,255);
     ellipse(x, y, 10, 20);
     
-     //if(score % 10 == 0){
-   // image(dog,dogX,dogY);
+    // if(score % 5 == 0){
+  //  image(dog,dogX,dogY);
   
  //}
  
 fill(210, 105, 30);
     stroke(210,105,30);
-    rect(mouseX, 630, boxX, 90);
+    rect(mouseX, 970, boxX, 110);
     
     
 
 
 fill(255,255,255);
- text("Your score is now: " + score, 10,30);
+ text("Your score is now: " + score, 10,50);
  
  fill(255,255,0);
- text("Level "+ level,900,30);
+ text("Level "+ level,1400,50);
 
-if(y>720){
+if(y>1080){
   
   checkCatch(x);
  
- //checkCatchDog(dogX);
+// checkCatchDog(dogX);
  
   x = (int) random(width);
 
 //dogX = (int) random(width);
 
  speed = random(5, 25);
- 
+ //println("dog: "+dogX);
+ //println("mouse: "+mouseX);
 //dogY=0;
   y=0;
 
@@ -82,7 +83,7 @@ if(score>=0 && score<30){
 
   y+=9;
   
-  //dogY += 9+5;
+  //dogY += 9;
   
   boxRange=90;
   boxX=90;
@@ -96,7 +97,7 @@ if(score>=30 && score<60){
 
 y+=14;
 
-// dogY += 14+5;
+// dogY += 14;
 
 boxRange=90;
 boxX=90;
@@ -111,7 +112,7 @@ else{
 boxX=90;
 
 y+=speed;
-// dogY += speed+5;
+//dogY += speed;
  
   fill(255,255,0);
 level = "3";
@@ -124,7 +125,7 @@ if(score>=90 && score<120){
   
   y+=speed;
   
-   //dogY += speed+5;
+   //dogY += speed;
   
    boxX=45;
    boxRange=45;
@@ -150,10 +151,10 @@ else{
 
  void checkCatch(int x){
          if (x > mouseX && x < mouseX+boxRange)
-            score+=1;
+            score+=10;
          else if (score > 0) 
-            if(score>=2){
-            score-=2; 
+            if(score>=20){
+            score-=20; 
           }
           else{
           score=0;
@@ -161,12 +162,14 @@ else{
     }
     
     
-  /*  void checkCatchDog(int dogX){
-         if (dogX > mouseX && dogX < mouseX+boxRange+120)
+  /* void checkCatchDog(int dogX){
+         if (dogX > mouseX && dogX < mouseX+boxRange)
             score+=20;}
-    */   
+       
+    */
     
     void win(){
      fill(0,255,0);
-     text("You won!",500,360);
+     textSize(300);
+     text("YOU WON!",160,700);
     }
