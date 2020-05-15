@@ -12,7 +12,7 @@ int score = 0;
  
  void setup(){
    
-  size(1920,1080);
+  size(displayWidth,displayHeight);
  
   //dog = loadImage("dancing-doge-png-4.gif");
   // dog.resize(130,90);
@@ -50,16 +50,16 @@ fill(100, 150, 255);
  
 fill(210, 105, 30);
     stroke(210,105,30);
-    rect(mouseX, 970, boxX, 110);
+    rect(mouseX, displayHeight-110, boxX, 110);
     
     
 
 
 fill(255,255,255);
- text("Your score is now: " + score, 10,80);
+ text("Your score is now: " + score, 10,60);
  
  fill(255,255,0);
- text("Level "+ level,1400,80);
+ text("Level "+ level,1400,60);
 
 if(y>1080){
   
@@ -151,10 +151,10 @@ else{
 
  void checkCatch(int x){
          if (x > mouseX && x < mouseX+boxRange)
-            score+=10;
+            score+=1;
          else if (score > 0) 
-            if(score>=20){
-            score-=20; 
+            if(score>=2){
+            score-=2; 
           }
           else{
           score=0;
