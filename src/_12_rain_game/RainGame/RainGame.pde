@@ -4,6 +4,8 @@ int score = 0;
   
    float speed = random(5, 25);
    
+   float speedInfinite = random(16,27);
+   
  int boxX=90;
  
  int boxRange=90;
@@ -28,12 +30,12 @@ int y = 0;
    background(0,0,0); 
   
 textSize(70);
-
+textAlign(CENTER);
 fill(255,255,255);
-text("Rain Game", 825, 410); 
-
+text("Rain Game", displayWidth/2, displayHeight/2); 
+textAlign(CENTER);
 fill(0, 102, 153);
-text("Click and Hold to Play", 645, 480);
+text("Click and Hold to Play", displayWidth/2, displayHeight/2 + 70);
 
 if(mousePressed){
 
@@ -54,14 +56,17 @@ fill(210, 105, 30);
     
     
 
-
+textAlign(LEFT);
 fill(255,255,255);
  text("Your score is now: " + score, 10,60);
  
+ if(level=="1"||level=="2"||level=="3"||level=="4"){
+ 
  fill(255,255,0);
  text("Level "+ level,1400,60);
-
-if(y>1080){
+ }
+ 
+if(y>displayHeight){
   
   checkCatch(x);
  
@@ -72,6 +77,7 @@ if(y>1080){
 //dogX = (int) random(width);
 
  speed = random(5, 25);
+ speedInfinite = random(16,27);
  //println("dog: "+dogX);
  //println("mouse: "+mouseX);
 //dogY=0;
@@ -134,7 +140,11 @@ if(score>=90 && score<120){
 }
 else{
   
-  win();
+ y+=speedInfinite;
+ 
+ boxX=45;
+ boxRange=45;
+ 
    
 }
 
@@ -151,7 +161,7 @@ else{
 
  void checkCatch(int x){
          if (x > mouseX && x < mouseX+boxRange)
-            score+=1;
+            score+=30;
          else if (score > 0) 
             if(score>=2){
             score-=2; 
@@ -169,7 +179,8 @@ else{
     */
     
     void win(){
+      textAlign(CENTER);
      fill(0,255,0);
      textSize(300);
-     text("YOU WON!",160,700);
+     text("YOU WON!",displayWidth/2,displayHeight/2);
     }
