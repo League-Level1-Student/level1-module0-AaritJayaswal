@@ -60,10 +60,14 @@ textAlign(LEFT);
 fill(255,255,255);
  text("Your score is now: " + score, 10,60);
  
- if(level=="1"||level=="2"||level=="3"||level=="4"){
+ if(score<120){
  
  fill(255,255,0);
  text("Level "+ level,1400,60);
+ }
+ else{
+   fill(255,255,0);
+ text("Infinite Mode",1400,60);
  }
  
 if(y>displayHeight){
@@ -161,13 +165,14 @@ else{
 
  void checkCatch(int x){
          if (x > mouseX && x < mouseX+boxRange)
-            score+=30;
+            score+=1;
          else if (score > 0) 
             if(score>=2){
             score-=2; 
           }
           else{
           score=0;
+          
           }
     }
     
